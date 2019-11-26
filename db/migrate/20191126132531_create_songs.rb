@@ -1,4 +1,4 @@
-class CreateSongs < ActiveRecord::Migration[5.2]
+  class CreateSongs < ActiveRecord::Migration[5.2]
   def change
     create_table :songs do |t|
       t.string :tags
@@ -8,7 +8,7 @@ class CreateSongs < ActiveRecord::Migration[5.2]
       t.string :photo
       t.date :post_at
       t.float :duration
-      t.references :users, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
