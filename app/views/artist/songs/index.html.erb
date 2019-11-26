@@ -1,0 +1,30 @@
+<div class='text-center'> <h1>My musics</h1> </div>
+<div class='text-center'>
+<%= link_to new_artist_song_path(@song), class: 'btn btn-secondary' do %>
+<i class="fas fa-plus"></i><p>Music</p>
+<% end %>
+</div>
+<div class="container">
+  <div class="row" >
+    <% @songs.each do |song| %>
+      <div class="col-4">
+          <div class="card">
+            <div class="card-trip-infos">
+              <div>
+                <%= link_to artist_song_path(song) do %>
+                  <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
+                  <p><%= song.title %></p>
+                  <p><%= song.user.name %></p>
+                  <p class="card-logo">
+                    <a class="btn btn-light"><i class="fas fa-bookmark"></i></a>
+                    <a class="btn btn-light"><i class="fas fa-play"></i></a>
+                  </p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
