@@ -16,6 +16,16 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'simple_form'
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass', '~> 5.6.1'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'devise'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
