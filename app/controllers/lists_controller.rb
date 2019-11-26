@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
   def index
-    @songs = Song.all
+    @lists = current_user.lists
   end
 end

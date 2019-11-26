@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'songs#index'
 
   resources :lists
+
   resources :songs, only: [] do
     resources :list_songs, only: [ :create, :delete ]
     resources :reposts, only: [ :create, :delete ]
