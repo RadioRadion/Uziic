@@ -1,9 +1,7 @@
 <div class="container">
   <div>
-    <%= link_to "songs", class: "filtre-button btn-sucess" %>
-    <%= link_to "Playlist", class: "filtre-button btn-sucess" %>
-    <%= link_to "Albums", class: "filtre-button btn-sucess" %>
-
+    <%= link_to "Title", root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess" %>
+    <%= link_to "Playlist", lists_path( query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess"  %>
   </div>
 
   <%= render 'form'%>
