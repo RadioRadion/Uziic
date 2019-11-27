@@ -7,12 +7,22 @@
   </button>
 
     <div class="button-search">
-      <%= form_tag root_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "form control", placeholder: "Find title, artist, tag" %>
-        <%= text_field_tag :query_town, params[:query_town], class: "form control", placeholder: "Find town" %>
-        <%= submit_tag "Search", class: "btn button-search" do %>
+      <% if current_page?(controller: "songs", action: "index") %>
+        <%= form_tag root_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form control", placeholder: "Find title, artist, tag" %>
+          <%= text_field_tag :query_town, params[:query_town], class: "form control", placeholder: "Find town" %>
+          <%= submit_tag "Search", class: "btn button-search" do %>
         <i class="fas fa-search"></i>
         <% end %>
+      <% end %>
+      <% else %>
+        <%= form_tag lists_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form control", placeholder: "Find title, artist, tag" %>
+          <%= text_field_tag :query_town, params[:query_town], class: "form control", placeholder: "Find town" %>
+          <%= submit_tag "Search", class: "btn button-search" do %>
+        <i class="fas fa-search"></i>
+        <% end %>
+      <% end %>
       <% end %>
     </div>
 
