@@ -13,8 +13,12 @@
       <i class="fas fa-undo-alt"></i>
      <% end %>
       <% if !current_user.nil? %>
-        <a class="btn btn-light"><i class="fas fa-edit"></i></a>
-        <a class="btn btn-light"><i class="fas fa-trash-alt"></i></a>
+          <%= link_to edit_artist_song_path(@song), class: "btn btn-light" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to artist_song_path(@song), method: :delete, class: "btn btn-light" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
       <% end %>
       <a class="btn btn-light"><i class="fas fa-bookmark"></i></a>
       <a class="btn btn-light"><i class="fas fa-play"></i></a>
