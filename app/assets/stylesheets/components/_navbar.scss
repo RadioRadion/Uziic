@@ -1,3 +1,9 @@
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: #D1EECC;
@@ -17,7 +23,6 @@
   border-radius: 15px;
   background-color: #d1eecc;
   display: inline-flex;
-
 }
 
 
@@ -25,7 +30,6 @@
 .nav-item a {
   text-decoration:none;
   color: rgba(0, 0, 0, 0.7);
-
 }
 
 #navbarDropdownMenuLink:active {
@@ -46,6 +50,7 @@
 
 .nav-item {
   padding-top: 10px;
+  padding-right: 19px;
 }
 
 .dropdown-menu {
