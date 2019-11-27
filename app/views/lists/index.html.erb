@@ -5,7 +5,7 @@
     <%= link_to "Albums", class: "filtre-button btn-sucess" %>
 
   </div>
-  <%= link_to "Add a Playlist", class: "filtre-button btn-sucess" %>
+
   <%= render 'form'%>
   <div class="row" >
     <% @lists.each do |list| %>
@@ -16,7 +16,7 @@
             <h5 class="card-title"><%= "#{list.name} ( #{list.tags} )" %></h5>
               <p class="card-logo">
                 <a class="btn btn-light"><i class="fas fa-play"></i></a>
-                <a class="btn btn-light"><i class="fas fa-edit"></i></a>
+                <%= link_to "", edit_list_path(list), class: "fas fa-edit btn btn-light" %>
                 <a class="btn btn-light"><i class="fas fa-circle"></i></a>
                 <a class="btn btn-light"><i class="fas fa-music"></i></a>
                 <%= link_to "", list_path(list), method: :delete, class: "fas fa-angry btn btn-light" %>
