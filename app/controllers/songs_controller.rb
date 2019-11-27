@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-
+  skip_before_action :authenticate_user!, :only => [:index]
   def index
     if params[:query].present? || params[:query_town].present?
       sql_query = " \
