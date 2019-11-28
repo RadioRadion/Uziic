@@ -1,6 +1,13 @@
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: #D1EECC;
+  border-bottom: 1px solid #D1EECC;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,11 +18,45 @@
   width: 40px;
 }
 
-.button-search {
-  background-color: #d1eecc;
-}
-
 
 .button-search {
   border-radius: 15px;
+  background-color: #d1eecc;
+  display: inline-flex;
+}
+
+
+
+.nav-item a {
+  text-decoration:none;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+#navbarDropdownMenuLink:active {
+    background: #57A99A;
+
+}
+
+#navbarDropdownMenuLink:hover {
+    background: #57A99A;
+
+}
+
+#navbarDropdownMenuLink:focus {
+    background: #57A99A;
+
+}
+
+
+.nav-item {
+  padding-top: 10px;
+  padding-right: 19px;
+}
+
+.dropdown-menu {
+  background: #57A99A;
+}
+
+.dropdown-item:hover {
+  background: #D1EECC;
 }

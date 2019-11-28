@@ -25,10 +25,10 @@ gem 'carrierwave', '~> 1.2'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'devise'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'faker'
 end
 
 group :development, :test do

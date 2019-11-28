@@ -1,9 +1,7 @@
 <div class="container">
-  <div>
-    <%= link_to "Title", root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess" %>
-    <%= link_to "Playlist", lists_path( query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess"  %>
-  </div>
 
+
+  <%= render 'form'%>
   <div class="row" >
     <% @lists.each do |list| %>
       <div class="col-4">
@@ -13,10 +11,10 @@
             <h5 class="card-title"><%= "#{list.name} ( #{list.tags} )" %></h5>
               <p class="card-logo">
                 <a class="btn btn-light"><i class="fas fa-play"></i></a>
-                <%#= link_to "", edit_list_path(list), class: "fas fa-edit btn btn-light" %>
+                <%= link_to "", edit_user_list_path(list), class: "fas fa-edit btn btn-light" %>
                 <a class="btn btn-light"><i class="fas fa-circle"></i></a>
                 <a class="btn btn-light"><i class="fas fa-music"></i></a>
-                <%#= link_to "", list_path(list), method: :delete, class: "fas fa-angry btn btn-light" %>
+                <%= link_to "", user_list_path(list), method: :delete, class: "fas fa-angry btn btn-light" %>
               </p>
           </div>
         </div>
@@ -24,7 +22,3 @@
     <% end %>
   </div>
 </div>
-
-<%= render 'shared/player' %>
-<%= render 'shared/player' %>
-
