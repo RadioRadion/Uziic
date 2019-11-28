@@ -1,11 +1,20 @@
 .filtre-button {
   display: inline-grid;
 
-}
-
-.button-menu:hover {
-  background: #57A99A;
-
 
 }
+
+
+.button-search {
+  background: white;
+  color: rgba(0, 0, 0, 0.7);
+      transition: all ease 300ms;
+
+  &:hover {
+    color: #FACBC5;
+    transition: all ease 300ms;
+  }
+}
+
+
 

@@ -6,9 +6,10 @@
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: #D1EECC;
-  border-bottom: 1px solid #D1EECC;
+  background: white;
 }
+
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -19,9 +20,10 @@
 }
 
 
+
 .button-search {
   border-radius: 15px;
-  background-color: #d1eecc;
+  background-color: transparent;
   display: inline-flex;
 }
 
@@ -30,35 +32,28 @@
 .nav-item a {
   text-decoration:none;
   color: rgba(0, 0, 0, 0.7);
+      transition: all ease 300ms;
+
+  &:hover {
+    color:#FACBC5;
+    transition: all ease 300ms;
+  }
 }
-
-#navbarDropdownMenuLink:active {
-    background: #57A99A;
-
-}
-
-#navbarDropdownMenuLink:hover {
-    background: #57A99A;
-
-}
-
-#navbarDropdownMenuLink:focus {
-    background: #57A99A;
-
-}
-
 
 .nav-item {
   padding-top: 10px;
   padding-right: 19px;
 }
 
-.dropdown-menu {
-  background: #57A99A;
-}
 
-.dropdown-item:hover {
-  background: #D1EECC;
-}
+#navbarDropdownMenuLink {
+  text-decoration:none;
+  color: rgba(0, 0, 0, 0.7);
+      transition: all ease 300ms;
 
+  &:hover {
+    color:#FACBC5;
+    transition: all ease 300ms;
+  }
+}
 
