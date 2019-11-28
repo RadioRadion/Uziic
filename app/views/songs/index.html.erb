@@ -18,6 +18,18 @@
                 <a class="btn btn-light"><i class="fas fa-play"></i></a>
                 <a class="btn btn-light"><i class="fas fa-circle"></i></a>
                 <a class="btn btn-light"><i class="fas fa-music"></i></a>
+                <% unless current_user.nil? %>
+                  <div class="dropup">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-plus btn btn-light"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <% @user_lists.each do |list| %>
+                        <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
               </p>
           </div>
         </div>
@@ -25,8 +37,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-

@@ -14,6 +14,7 @@ class SongsController < ApplicationController
     else
       @songs = Song.all
     end
+    @user_lists = List.where(user_id: current_user)
   end
 end
 
