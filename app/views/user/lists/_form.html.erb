@@ -1,4 +1,4 @@
-<%= simple_form_for @list do |form| %>
+<%= simple_form_for(@list, url: user_lists_path, method: :post) do |form| %>
   <%= form.input :name, as: :text %>
   <%= form.input :tags, as: :text %>
   <%= form.button :submit %>

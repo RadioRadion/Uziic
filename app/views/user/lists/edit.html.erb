@@ -1,0 +1,6 @@
+
+    <%= simple_form_for(@list, url: user_list_path, method: :patch) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :tags %>
+    <%= f.submit "Update", class: "btn btn-success" %>
+    <% end %>
