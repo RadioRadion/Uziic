@@ -1,15 +1,21 @@
+.main {
+  min-height: 73vh;
+}
+
 .footer {
   font-weight: bold;
   background: $green;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 13vh;
   padding: 0px 50px;
   color: black;
   margin-top: 40px;
   width: 100%;
   letter-spacing: 1.5px;
+  position: relative;
+  bottom: 0;
 }
 .footer-links {
   display: flex;
