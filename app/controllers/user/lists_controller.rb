@@ -19,6 +19,8 @@ class User::ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
+    @list_songs = ListSong.where(list_id: params[:id])
+    @songs = Song.all
   end
 
   def update

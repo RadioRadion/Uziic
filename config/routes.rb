@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :lists, only: :index
 
   resources :songs, only: [] do
-    resources :list_songs, only: [ :create, :delete ]
+    resources :list_songs
     resources :reposts, only: [ :create, :delete ]
   end
 
@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :lists
+    resources :lists do
+      member do
+        post 'delete_song'
+      end
+    end
   end
 
   namespace :artist do

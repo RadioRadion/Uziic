@@ -1,6 +1,22 @@
-
+  <div>
     <%= simple_form_for(@list, url: user_list_path, method: :patch) do |f| %>
     <%= f.input :name %>
     <%= f.input :tags %>
     <%= f.submit "Update", class: "btn btn-success" %>
     <% end %>
+  </div>
+
+  <div>
+    <% if  @list_songs.size == 0 %>
+        <p>not music</p>
+    <% else %>
+        <% @list_songs.each do |list_song| %>
+        <%= list_song.song.title %>
+        <%= link_to "", song_list_song_path(list_song), method: :delete, class: "fas fa-angry btn btn-light" %>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+
