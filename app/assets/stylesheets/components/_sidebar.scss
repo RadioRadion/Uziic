@@ -1,0 +1,14 @@
+.sidebar {
+  position: sticky;
+  top: 85px;
+  height: 100px;
+  border-bottom: solid 1px black;
+  a {
+    text-decoration: none;
+    width: 65px;
+    color: black;
+  }
+  a:hover {
+
+  }
+}
