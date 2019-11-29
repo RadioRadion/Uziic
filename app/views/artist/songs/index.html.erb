@@ -12,12 +12,16 @@
             <div class="card-trip-infos">
               <div>
                 <%= link_to artist_song_path(song) do %>
-                  <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
+                  <% if song.photo.present? %>
+                    <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
+                  <% end %>
                   <p><%= song.title %></p>
                   <p><%= song.user.name %></p>
+                  <audio id="player" controls>
+                    <source src="<%= song.video %>" type="audio/mp3">
+                  </audio>
                   <p class="card-logo">
                     <a class="btn btn-light"><i class="fas fa-bookmark"></i></a>
-                    <a class="btn btn-light"><i class="fas fa-play"></i></a>
                   </p>
                 <% end %>
               </div>

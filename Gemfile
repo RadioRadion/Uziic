@@ -26,6 +26,7 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'devise'
 gem 'faker'
+gem 'plyr-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

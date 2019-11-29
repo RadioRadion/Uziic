@@ -11,11 +11,15 @@
     <% @songs.each do |song| %>
       <div class="col-4">
         <div class="card" style="width: 18rem;">
-          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
+          <% if song.photo.present? %>
+            <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= song.title  %></h5>
+              <audio id="player" controls>
+                <source src="<%= song.video %>" type="audio/mp3">
+              </audio>
               <p class="card-logo">
-                <a class="btn btn-light"><i class="fas fa-play"></i></a>
                 <a class="btn btn-light"><i class="fas fa-circle"></i></a>
                 <a class="btn btn-light"><i class="fas fa-music"></i></a>
                 <% unless current_user.nil? %>
