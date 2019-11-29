@@ -9,3 +9,5 @@ document.addEventListener("turbolinks:load", function() {
 $(document).on("turbolinks:load", function() {
   const player = new Plyr('#player');
 });
+
+
