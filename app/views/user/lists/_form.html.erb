@@ -1,5 +1,9 @@
-<%= simple_form_for(@list, url: user_lists_path, method: :post) do |form| %>
-  <%= form.input :name, as: :text %>
-  <%= form.input :tags, as: :text %>
-  <%= form.button :submit %>
-<% end %>
+<div class="forma">
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <%= simple_form_for(@list, url: user_lists_path, method: :post) do |form| %>
+      <%= form.input :name, as: :text %>
+      <%= form.input :tags, as: :text %>
+      <%= form.button :submit %>
+    <% end %>
+  </div>
+</div>
