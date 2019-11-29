@@ -13,7 +13,7 @@
               <div>
                 <%= link_to artist_song_path(song) do %>
                   <% if song.photo.present? %>
-                    <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
+                    <%= cl_image_tag(song.photo, width: 310, height: 310, crop: :fill) %>
                   <% end %>
                   <p><%= song.title %></p>
                   <p><%= song.user.name %></p>
