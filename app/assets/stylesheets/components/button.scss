@@ -1,5 +1,12 @@
 .filtre-button {
   display: inline-grid;
+  color: black;
+  transition: all ease 300ms;
+
+  &:hover {
+    color: white;
+    transition: all ease 300ms;
+  }
 
 
 }
