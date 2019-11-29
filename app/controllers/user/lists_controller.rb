@@ -7,6 +7,7 @@ class User::ListsController < ApplicationController
 
 
   def create
+
     @lists = current_user.lists
     @list = List.new(list_params)
     @list.user = current_user
