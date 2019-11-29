@@ -42,7 +42,7 @@ class Artist::SongsController < ApplicationController
   private
 
   def songs_params
-    params.require(:song).permit(:tags, :title, :description, :music_url, :photo, :post_at, :duration, :user_id)
+    params.require(:song).permit(:tags, :title, :description, :music_url, :photo, :post_at, :duration, :user_id, :video)
   end
 
   def set_song
