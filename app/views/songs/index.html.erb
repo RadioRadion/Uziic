@@ -1,54 +1,41 @@
-
-      <% unless params[:query].nil? %>
-        <div class="sidebar w-25 d-flex flex-column align-items-center justify-content-around text-left mt-5">
-          <%= link_to "Title >",root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left" %>
-          <%= link_to "Playlist >", lists_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left"  %>
-        </div>
+<% unless params[:query].nil? %>
+<div class="sidebar w-25 d-flex flex-column align-items-center justify-content-around text-left mt-5">
+  <%= link_to "Title >",root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left" %>
+  <%= link_to "Playlist >", lists_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left"  %>
+</div>
+<% end %>
+<div class="row d-flex flex-row w-100" >
+  <% @songs.each do |song| %>
+  <div class="w-75 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
+    <div class="card" style="width: 100%;">
+      <% if song.photo.present? %>
+      <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
       <% end %>
 
-    <div class="row d-flex flex-row w-100" >
-      <% @songs.each do |song| %>
-        <div class="w-75 col-4 d-flex justify-content-center">
-          <div class="card" style="width: 18rem;">
-            <% if song.photo.present? %>
-              <%= cl_image_tag(song.photo, width: 310, height: 310, crop: :fill) %>
-            <% end %>
-            <div class="card-body">
-              <audio id="player" controls>
-                <source src="<%= song.video %>" type="audio/mp3">
-              </audio>
-              <h5 class="card-title-song"><%= song.title  %></h5>
-              <h6 class="card-artistname"> artist-name </h6>
-
-                <div class="card-logo d-flex justify-content-center">
-
-
-                  <% unless current_user.nil? %>
-                    <div class="card-dropdown">
-                      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-plus btn btn-light"></i>
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <% @user_lists.each do |list| %>
-                          <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
-                        <% end %>
-                      </div>
-                    </div>
-                  <% end %>
-                </p>
-              </div>
-
+      <div class="card-body">
+        <audio id="player" controls>
+          <source src="<%= song.video %>" type="audio/mp3">
+        </audio>
+        <h5 class="card-title-song"><%= song.title  %></h5>
+        <h6 class="card-artistname"> artist-name </h6>
+        <div class="card-logo d-flex justify-content-center">
+          <% unless current_user.nil? %>
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+            <i class="fas fa-plus btn btn-light"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% @user_lists.each do |list| %>
+              <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
+              <% end %>
 
             </div>
           </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
+  </div>
+  <% end %>
 </div>
-
-
-
-
-
-
 
