@@ -1,6 +1,6 @@
 .card {
   overflow: hidden;
-  background: #D1EECC;
+  background: black;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   font-size: 24px;
   font-weight: bold;
@@ -16,9 +16,56 @@
 }
 
 
-.card-title {
-font-weight: bold;
+
+.card-title-song  {
+  font-weight: bold;
+  color: #F7D796;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: .8em;
+  letter-spacing: 3px;
+
 }
+
+.card-artistname {
+  color: #F7D796;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: .6em;
+  letter-spacing: 1.5px;
+  margin-top: 5px;
+
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.dropdown-item:hover {
+  color: #F7D796;
+}
+
+
+#dropdownMenuButton {
+  color: white;
+}
+
+#dropdownMenuButton .btn-light {
+  color: white;
+  background-color: black;
+}
+
+.btn-light{
+  background-color: black;
+  border-color: black;
+}
+
+.btn-light:hover  {
+    background-color: black;
+    border-color: black;
+  }
+
+
 
 .card-product {
   overflow: hidden;

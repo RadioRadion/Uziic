@@ -14,15 +14,17 @@
               <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
             <% end %>
             <div class="card-body">
-              <h5 class="card-title"><%= song.title  %></h5>
               <audio id="player" controls>
                 <source src="<%= song.video %>" type="audio/mp3">
               </audio>
-                <p class="card-logo">
-                  <a class="btn btn-light"><i class="fas fa-circle"></i></a>
-                  <a class="btn btn-light"><i class="fas fa-music"></i></a>
+              <h5 class="card-title-song"><%= song.title  %></h5>
+              <h6 class="card-artistname"> artist-name </h6>
+
+                <div class="card-logo d-flex justify-content-center">
+
+
                   <% unless current_user.nil? %>
-                    <div class="dropup">
+                    <div class="card-dropdown">
                       <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-plus btn btn-light"></i>
                       </button>
@@ -34,9 +36,19 @@
                     </div>
                   <% end %>
                 </p>
+              </div>
+
+
             </div>
           </div>
         </div>
       <% end %>
     </div>
 </div>
+
+
+
+
+
+
+
