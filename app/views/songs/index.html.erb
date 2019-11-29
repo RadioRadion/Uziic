@@ -11,6 +11,7 @@
       <% if song.photo.present? %>
       <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
       <% end %>
+
       <div class="card-body">
         <audio id="player" controls>
           <source src="<%= song.video %>" type="audio/mp3">
@@ -27,6 +28,7 @@
               <% @user_lists.each do |list| %>
               <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
               <% end %>
+
             </div>
           </div>
           <% end %>
