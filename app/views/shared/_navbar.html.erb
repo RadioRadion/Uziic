@@ -9,8 +9,8 @@
     <div class= "searchbar">
       <% if current_page?(root_path) %>
         <%= form_tag root_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form control", placeholder: "Find title, artist, tag" %>
-          <%= text_field_tag :query_town, params[:query_town], class: "form control", placeholder: "Find town" %>
+          <%= text_field_tag :query, params[:query], class: "form control", placeholder: "Find title, artist, tag", class:"rounded"  %>
+          <%= text_field_tag :query_town, params[:query_town], class: "form control", placeholder: "Find town", class:"rounded" %>
           <%= submit_tag "Search", class: "btn button-search" do %>
             <i class="fas fa-search"></i>
             <% end %>

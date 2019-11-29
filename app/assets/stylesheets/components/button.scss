@@ -6,9 +6,12 @@
 
 
 .button-search {
-  background: white;
-  color: rgba(0, 0, 0, 0.7);
-      transition: all ease 300ms;
+  background: black;
+  color: white;
+  transition: all ease 300ms;
+  display: inline-flex;
+
+
 
   &:hover {
     color: #FACBC5;
