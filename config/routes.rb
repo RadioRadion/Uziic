@@ -6,11 +6,11 @@ Rails.application.routes.draw do
 
   resources :songs, only: [] do
     resources :list_songs
-    resources :reposts, only: [ :create, :delete ]
   end
 
   resources :users, only: [] do
     resources :favorites, only: [ :create, :delete ]
+    resources :reposts, only: [ :index, :create, :destroy ]
   end
 
   namespace :user do

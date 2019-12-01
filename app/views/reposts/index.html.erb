@@ -1,0 +1,42 @@
+
+
+<div class="row d-flex flex-row w-100" >
+  <% @reposts.each do |repost| %>
+  <div class="w-75 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
+    <div class="card" style="width: 100%;">
+      <% if repost.song.photo.present? %>
+      <%= cl_image_tag(repost.song.photo, width: 400, height: 300, crop: :fill) %>
+      <% end %>
+
+      <div class="card-body">
+        <audio id="player" controls>
+          <source src="<%= repost.song.video %>" type="audio/mp3">
+        </audio>
+        <h5 class="card-title-repost.song"><%= repost.song.title  %></h5>
+        <h6 class="card-artistname"> artist-name </h6>
+        <div class="card-logo d-flex justify-content-center">
+          <% unless current_user.nil? %>
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+            <i class="fas fa-plus btn btn-light"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% current_user.lists.each do |list| %>
+              <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: repost.song.id), class: "dropdown-item", method: :post %>
+              <% end %>
+            </div>
+            <% unless current_user.nil? %>
+              <% if current_user == repost.user %>
+                <%#= link_to "delete a repost", user_repost_path(repost.id), method: :delete %>
+              <% else %>
+                <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: repost.song.id), method: :post %>
+              <% end %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

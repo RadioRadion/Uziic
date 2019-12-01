@@ -32,15 +32,20 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
         <div class="Aligner">
-          <li class="nav-item">
-            <%= link_to 'Home', "/", class: "button-menu" %>
-          </>
-          <li class="nav-item">
-            <%= link_to 'My music', artist_songs_path, class: "button-menu" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'My playlist', user_lists_path, class: "button-menu" %>
-          </li>
+          <% unless current_user.nil? %>
+            <li class="nav-item">
+              <%= link_to 'Home', "/", class: "button-menu" %>
+            </>
+            <li class="nav-item">
+              <%= link_to 'My music', artist_songs_path, class: "button-menu" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'My playlist', user_lists_path, class: "button-menu" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'My stream', user_reposts_path(current_user), class: "button-menu" %>
+            </li>
+          <% end %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img class="avatar dropdown-toggle" id="navbarDropdown"  />
