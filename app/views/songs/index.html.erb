@@ -6,7 +6,7 @@
 <% end %>
 <div class="row d-flex flex-row w-100" >
   <% @songs.each do |song| %>
-  <div class="w-75 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
+  <div class="w-75 col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center">
     <div class="card" style="width: 100%;">
       <% if song.photo.present? %>
       <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
