@@ -27,7 +27,7 @@
               <source src="<%= song.video %>" type="audio/mp3">
             </audio>
             <h5 class="card-title-song"><%= song.title  %></h5>
-            <h6 class="card-artistname"> artist-name </h6>
+            <h6 class="card-artistname"><%= link_to song.user.pseudo, user_path(song.user) %></h6>
             <div class="card-logo d-flex justify-content-center">
               <% unless current_user.nil? %>
               <div class="dropdown">
