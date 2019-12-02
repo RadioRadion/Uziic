@@ -1,10 +1,18 @@
+<div>
+<div class="banner">
+  <div class="container">
+    <h1>Uziic <strong>be a part</strong> of <strong>your city's sound</strong>!</h1>
+  </div>
+</div>
+
+
 <% unless params[:query].nil? %>
 <div class="sidebar w-25 d-flex flex-column align-items-center justify-content-around text-left mt-5">
   <%= link_to "Title >",root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left" %>
   <%= link_to "Playlist >", lists_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left"  %>
 </div>
 <% end %>
-<div class="row d-flex flex-row w-100" >
+<div class="row d-flex flex-row w-100" style="margin: auto;padding: 0 30px;">
   <% if @songs.size == 0 %>
     <p>No music found</p>
   <% else %>
@@ -59,3 +67,4 @@
   <% end %>
 </div>
 
+</div>
