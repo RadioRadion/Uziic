@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @favorite = Favorite.new(follower_id: current_user, followed_id: @user)
+    @favorite = Favorite.new(follower_id: current_user.id, followed_id: @user.id)
     if @favorite.save!
       redirect_to root_path
     else
