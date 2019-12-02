@@ -1,7 +1,7 @@
 class User::ListsController < ApplicationController
   def index
     @user = current_user
-    @lists = @user.lists
+    @lists = @user.lists.order(created_at: :desc)
     @list = List.new
   end
 
