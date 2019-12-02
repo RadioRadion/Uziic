@@ -32,10 +32,11 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
         <div class="Aligner">
-          <% unless current_user.nil? %>
             <li class="nav-item">
               <%= link_to 'Home', "/", class: "button-menu" %>
-            </>
+
+            </li>
+          <% unless current_user.nil? %>
             <li class="nav-item">
               <%= link_to 'My music', artist_songs_path, class: "button-menu" %>
             </li>
@@ -46,20 +47,19 @@
               <%= link_to 'My stream', user_reposts_path(current_user), class: "button-menu" %>
             </li>
 
-          <% end %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="avatar dropdown-toggle" id="navbarDropdown"  />
-              Username
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <% if user_signed_in? %>
-                <%= link_to "Profil", edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
-              <% else %>
-                <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
-              <% end %>
+            <li class="nav-item dropdown">
+              <div class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              <%= current_user.name %>
             </div>
+          <% end %>
+              <% if user_signed_in? %>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to "Profil", edit_user_registration_path, class: "dropdown-item" %>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+                </div>
+              <% else %>
+                <%= link_to "Login", new_user_session_path, class: "button-log" %>
+              <% end %>
           </li>
         </div>
        </ul>

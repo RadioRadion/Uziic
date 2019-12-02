@@ -7,6 +7,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: black;
+  height: 95px;
 }
 
 
@@ -31,8 +32,8 @@
 }
 
 .nav-item {
-  padding-top: 10px;
-  padding-right: 19px;
+   margin: 10px;
+
 }
 
 .dropdown-menu {
@@ -42,7 +43,7 @@
 #navbarDropdownMenuLink {
   text-decoration:none;
   color: white;
-      transition: all ease 300ms;
+  transition: all ease 300ms;
 
   &:hover {
     color:#FACBC5;
