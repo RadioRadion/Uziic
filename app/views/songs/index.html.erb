@@ -29,9 +29,24 @@
               <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
               <% end %>
             </div>
+
+
             <% unless current_user.nil? %>
-              <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: song.id), method: :post %>
+
+              <% reposted = false %>
+              <% @reposts.each do |repost| %>
+                <% if song.id == repost.song_id %>
+                  <%= link_to "delete a repost", user_repost_path(current_user, repost.id), method: :delete %>
+                  <% reposted = true %>
+                <% end %>
+              <% end %>
+              <% if reposted == false %>
+                  <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: song), method: :post %>
+              <% end %>
             <% end %>
+
+
+
           </div>
           <br>
           <div>
