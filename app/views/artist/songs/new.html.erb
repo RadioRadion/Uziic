@@ -1,5 +1,4 @@
- <div class="container">
-  <div class="d-flex justify-content-center">
+<div class="formb">
     <%= simple_form_for(@song, url: artist_songs_path, method: :post) do |f| %>
     <%= f.input :title %>
     <%= f.input :tags %>
@@ -14,6 +13,6 @@
     <%= f.submit "Save music", class: "btn btn-success" %>
     <% end %>
   </div>
-</div>
+
 
 
