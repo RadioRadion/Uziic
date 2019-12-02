@@ -3,6 +3,8 @@ class Artist::SongsController < ApplicationController
   def index
     @user = current_user
     @songs = @user.songs
+    @user_lists = List.where(user_id: current_user)
+
   end
 
   def show
