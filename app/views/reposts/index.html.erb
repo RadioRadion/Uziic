@@ -27,7 +27,7 @@
             </div>
             <% unless current_user.nil? %>
               <% if current_user == repost.user %>
-                <%#= link_to "delete a repost", user_repost_path(repost.id), method: :delete %>
+                <%= link_to "delete a repost", user_repost_path(current_user, repost.id), method: :delete %>
               <% else %>
                 <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: repost.song.id), method: :post %>
               <% end %>
