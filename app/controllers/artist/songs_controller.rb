@@ -4,7 +4,9 @@ class Artist::SongsController < ApplicationController
     @user = current_user
     @songs = @user.songs.order(created_at: :desc)
     @user_lists = List.where(user_id: current_user)
-    @reposts = current_user.reposts
+    unless current_user.nil?
+      @reposts = current_user.reposts
+    end
   end
 
   def show
