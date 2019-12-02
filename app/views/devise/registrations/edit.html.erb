@@ -11,6 +11,9 @@
             <% end %>
 
             <%= f.input :name %>
+            <% unless current_user.songs.nil? %>
+              <%= f.input :pseudo %>
+            <% end %>
             <%= f.input :address %>
             <%= f.input :password,
                         hint: "leave it blank if you don't want to change it",

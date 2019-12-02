@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :list_songs
   end
 
-  resources :users, only: [] do
+  resources :users, only: [:show] do
     resources :favorites, only: [ :index, :create, :destroy ]
     resources :reposts, only: [ :index, :create, :destroy ]
   end
