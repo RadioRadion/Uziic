@@ -87,3 +87,72 @@
   }
 
 }
+
+.btn-login {
+  background: black;
+  color: #FACBC5;
+  transition: all ease 300ms;
+  display: inline-flex;
+  margin: 10px;
+
+
+
+  &:hover {
+    color: white;
+    transition: all ease 300ms;
+    text-decoration: none;
+  }
+}
+
+.btn-signup {
+  margin: 10px;
+  background: black;
+  color: white;
+  transition: all ease 300ms;
+  display: inline-flex;
+  margin: 10px;
+
+
+
+  &:hover {
+    color: #FACBC5;
+    transition: all ease 300ms;
+    text-decoration: none;
+  }
+
+}
+
+.btn-forgotpass {
+  background: black;
+  color: white;
+  transition: all ease 300ms;
+  display: inline-flex;
+  margin: 10px;
+  font-size: 12px;
+
+
+
+  &:hover {
+    color: #FACBC5;
+    transition: all ease 300ms;
+    text-decoration: none;
+  }
+
+}
+
+.btn-newlist {
+  margin: 10px;
+  color: #FACBC5;
+  transition: all ease 300ms;
+  display: inline-flex;
+  margin: 10px;
+
+
+
+  &:hover {
+    color: white;
+    transition: all ease 300ms;
+    text-decoration: none;
+  }
+
+}
