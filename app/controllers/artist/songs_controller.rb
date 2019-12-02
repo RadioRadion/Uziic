@@ -4,7 +4,7 @@ class Artist::SongsController < ApplicationController
     @user = current_user
     @songs = @user.songs
     @user_lists = List.where(user_id: current_user)
-
+    @reposts = current_user.reposts
   end
 
   def show

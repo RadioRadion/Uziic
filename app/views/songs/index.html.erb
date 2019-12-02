@@ -30,9 +30,7 @@
               <% end %>
             </div>
 
-
             <% unless current_user.nil? %>
-
               <% reposted = false %>
               <% @reposts.each do |repost| %>
                 <% if song.id == repost.song_id %>
@@ -44,9 +42,6 @@
                   <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: song), method: :post %>
               <% end %>
             <% end %>
-
-
-
           </div>
           <br>
           <div>
