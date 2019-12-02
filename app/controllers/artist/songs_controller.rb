@@ -2,7 +2,7 @@ class Artist::SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   def index
     @user = current_user
-    @songs = @user.songs
+    @songs = @user.songs.order(created_at: :desc)
     @user_lists = List.where(user_id: current_user)
     @reposts = current_user.reposts
   end
