@@ -15,7 +15,6 @@ class SongsController < ApplicationController
       @songs = Song.all.order(created_at: :desc)
     end
     @user_lists = List.where(user_id: current_user)
+    @reposts = current_user.reposts
   end
 end
-
-

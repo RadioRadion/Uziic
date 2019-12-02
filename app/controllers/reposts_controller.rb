@@ -10,8 +10,10 @@ class RepostsController < ApplicationController
     @repost.save
   end
 
-  def delete
-    raise
+  def destroy
+    @repost = Repost.find(params[:id])
+    @repost.delete
+    redirect_to user_reposts_path
   end
 
   private
