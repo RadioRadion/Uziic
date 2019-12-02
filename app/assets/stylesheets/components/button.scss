@@ -17,6 +17,7 @@
   color: white;
   transition: all ease 300ms;
   display: inline-flex;
+  margin: 10px;
 
 
 
@@ -26,3 +27,63 @@
   }
 }
 
+.btn-cancel {
+  color: white;
+
+  &:hover {
+    color: #FACBC5;
+    text-decoration: none;
+    transition: all ease 300ms;
+  }
+}
+
+.btn-back {
+  background: black;
+  color: white;
+  transition: all ease 300ms;
+  display: inline-flex;
+
+
+
+  &:hover {
+    color: #FACBC5;
+    transition: all ease 300ms;
+    text-decoration: none;
+
+  }
+}
+
+.button-log  {
+  margin: 10px;
+  background: black;
+  color: white;
+  transition: all ease 300ms;
+  display: inline-flex;
+  margin: 10px;
+
+
+
+  &:hover {
+    color: #FACBC5;
+    transition: all ease 300ms;
+    text-decoration: none;
+  }
+}
+
+.submit-edit {
+  margin: 10px;
+  background: black;
+  color: #FACBC5;
+  transition: all ease 300ms;
+  display: inline-flex;
+  margin: 10px;
+
+
+
+  &:hover {
+    color: white;
+    transition: all ease 300ms;
+    text-decoration: none;
+  }
+
+}
