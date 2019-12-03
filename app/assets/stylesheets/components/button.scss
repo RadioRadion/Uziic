@@ -158,10 +158,6 @@
 }
 
 
-
-
-
-
 @mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
   box-shadow: inset 0 0 0 $width $color;
   color: $color;
@@ -223,8 +219,10 @@
   cursor: pointer;
   line-height: 1.5;
   font: 700 1.2rem 'Roboto Slab', sans-serif;
-  padding: 1em 2em;
   letter-spacing: 0.05rem;
 
   &:focus { outline: 2px dotted #55d7dc; }
 }
+
+
+
