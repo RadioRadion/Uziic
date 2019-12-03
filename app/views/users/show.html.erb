@@ -1,11 +1,17 @@
 <div class="container">
-<% unless current_user.nil? %>
-  <% if current_user != @user %>
-    <%= link_to "FOLLOW", user_favorites_path(@user), method: :post %>
-  <% else %>
-    <%= @user.pseudo %>
+  <% follow = false %>
+  <% unless current_user.nil? %>
+    <% if current_user != @user %>
+      <% @favorites.each do |favorite| %>
+        <% follow = true if favorite.followed == @user %>
+      <% end %>
+      <% if follow == true %>
+        <%= link_to "UNFOLLOW", user_favorite_path(@favorite.id), method: :delete %>
+      <% elsif follow == false %>
+        <%= link_to "FOLLOW", user_favorites_path(@user), method: :post %>
+      <% end %>
+    <% end %>
   <% end %>
-<% end %>
 
   <div class="row d-flex flex-row w-100" >
     <% @songs.each do |song| %>
@@ -18,43 +24,43 @@
         <div class="card-body">
           <audio id="player" controls>
             <source src="<%= song.video %>" type="audio/mp3">
-          </audio>
-          <h5 class="card-title-song"><%= song.title  %></h5>
-          <h6 class="card-artistname"><%= song.user.pseudo %></h6>
-          <div class="card-logo d-flex justify-content-center">
-            <% unless current_user.nil? %>
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-              <i class="fas fa-plus btn btn-light"></i>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <% @user_lists.each do |list| %>
-                <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
-                <% end %>
-              </div>
+            </audio>
+            <h5 class="card-title-song"><%= song.title  %></h5>
+            <h6 class="card-artistname"><%= song.user.pseudo %></h6>
+            <div class="card-logo d-flex justify-content-center">
               <% unless current_user.nil? %>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+                  <i class="fas fa-plus btn btn-light"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <% @user_lists.each do |list| %>
+                  <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
+                  <% end %>
+                </div>
+                <% unless current_user.nil? %>
                 <% reposted = false %>
                 <% @reposts.each do |repost| %>
-                  <% if song.id == repost.song_id %>
-                    <%= link_to "delete a repost", user_repost_path(current_user, repost.id), method: :delete %>
-                    <% reposted = true %>
-                  <% end %>
+                <% if song.id == repost.song_id %>
+                <%= link_to "delete a repost", user_repost_path(current_user, repost.id), method: :delete %>
+                <% reposted = true %>
+                <% end %>
                 <% end %>
                 <% if reposted == false %>
-                    <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: song), method: :post %>
+                <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: song), method: :post %>
                 <% end %>
+                <% end %>
+              </div>
+              <br>
+              <div>
+                <%= render 'shared/share' %>
+              </div>
               <% end %>
             </div>
-            <br>
-            <div>
-              <%= render 'shared/share' %>
-            </div>
-            <% end %>
           </div>
         </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
 
-</div>
+  </div>
