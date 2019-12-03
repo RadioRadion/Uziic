@@ -1,19 +1,38 @@
-.formc {
+#exampleModal {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
   text-align: center;
-  border: none;
-  outline: 0;
   padding: 10px 20px;
   color: #FAD1B1;
-  background-color: #000;
-  text-align: center;
   cursor: pointer;
-  width: 100%;
   border-radius: 8px;
   font-family: 'Varela Round';
 }
 
+.modal-body {
+  background-color: black;
+}
+
+.modal-header {
+    background-color: black;
+
+}
+
+
+.btn-createlist {
+
+  background: #FACBC5;
+  color: black;
+  transition: all ease 300ms;
+  display: inline-flex;
+  margin: 10px;
+  border: #FACBC5;
+  text-align: center;
+
+
+
+
+  &:hover {
+    color: white;
+    transition: all ease 300ms;
+  }
+}

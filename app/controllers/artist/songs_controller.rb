@@ -7,14 +7,18 @@ class Artist::SongsController < ApplicationController
     unless current_user.nil?
       @reposts = current_user.reposts
     end
+    @song = Song.new
   end
 
   def show
   end
 
   def new
+    @user = current_user
+
     @song = Song.new
   end
+
 
   def create
     @song = Song.new(songs_params)
