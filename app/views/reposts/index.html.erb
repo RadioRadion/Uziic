@@ -27,9 +27,13 @@
             </div>
             <% unless current_user.nil? %>
               <% if current_user == repost.user %>
-                <%= link_to "delete a repost", user_repost_path(current_user, repost.id), method: :delete %>
+                <%= link_to user_repost_path(current_user, repost.id), method: :delete do %>
+                <i class="fas fa-eraser mx-1" style="color: #F7D796"></i>
+                <% end %>
               <% else %>
-                <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: repost.song.id), method: :post %>
+                <%= link_to user_reposts_path(user_id: current_user, song_id: repost.song.id), method: :post do %>
+                <i class="fas fa-music mx-1" style="color: #F7D796"></i>
+                 <% end %>
               <% end %>
             <% end %>
           </div>

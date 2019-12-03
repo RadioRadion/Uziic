@@ -50,12 +50,12 @@
                           <i class="fas fa-eraser mx-1" style="color: #F7D796"></i>
                           <% end %>
                           <% reposted = true %>
-                        <% end %>
-                      <% end %>
-                      <% if reposted == false %>
-                        <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
-                        <i class="fas fa-music mx-1" style="color: #F7D796"></i>
-                        <% end %>
+                          <% end %>
+                          <% end %>
+                          <% if reposted == false %>
+                            <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
+                            <i class="fas fa-music mx-1" style="color: #F7D796"></i>
+                          <% end %>
                       <% end %>
                   <% end %>
                   </div>
