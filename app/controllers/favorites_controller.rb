@@ -1,6 +1,10 @@
 class FavoritesController < ApplicationController
   def index
-    # @favorites = Favorite.find(params[:user_id])
+    @favorites = Favorite.where(follower_id: current_user)
+    @user_lists = List.where(user_id: current_user)
+    unless current_user.nil?
+      @reposts = current_user.reposts
+    end
   end
 
   def create
@@ -13,9 +17,9 @@ class FavoritesController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @repost = Repost.find(params[:id])
-  #   @repost.delete
-  #   redirect_to user_reposts_path
-  # end
+  def destroy
+    @favorite = Favorite.find(params[:user_id])
+    @favorite.delete
+    redirect_to root_path
+  end
 end

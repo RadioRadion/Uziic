@@ -18,7 +18,13 @@
 @import "formupdatelist";
 @import "cardplaylist";
 
+
 .align-buton {
   justify-content: space-between;
+  display: flex;
+}
+
+.align-buton2 {
+  justify-content: center;
   display: flex;
 }
