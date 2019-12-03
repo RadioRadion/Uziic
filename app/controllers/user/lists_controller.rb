@@ -2,12 +2,11 @@ class User::ListsController < ApplicationController
   def index
     @user = current_user
     @lists = @user.lists.order(created_at: :desc)
+    @list_songs = ListSong.all
     @list = List.new
   end
 
-
   def create
-
     @lists = current_user.lists
     @list = List.new(list_params)
     @list.user = current_user
