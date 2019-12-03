@@ -1,29 +1,31 @@
 <div class='text-center'> <h1>My musics</h1>
 
 <%= link_to new_artist_song_path(@song), class: 'btn btn-light' do %>
-<i class="fas fa-plus-circle"></i>
+<i class="fas fa-plus-circle" style="color: #F7D796"></i>
 <% end %>
 </div>
 </div>
 
 
-<div class="row d-flex flex-row w-100" >
+<div class="row d-flex">
   <% @songs.each do |song| %>
-  <div class="w-75 col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
-    <div class="card" style="width: 100%;">
+  <div class="w-75 col-lg-3 col-md-3 col-sm-12">
+    <div class="card">
       <% if song.photo.present? %>
         <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
       <% end %>
-
+        <%#= render 'shared/share' %>
       <div class="card-body">
         <audio id="player" controls>
-          <source src="<%= song.video %>" type="audio/mp3">
+          <source src="<%= song.video %>" type="audio/mp3" controlscontrolsList="nodownload">
         </audio>
         <h5 class="card-title-song"><%= song.title  %></h5>
         <h6 class="card-artistname"><%= song.user.pseudo %></h6>
-        <div class="card-logo d-flex justify-content-center">
+        <div class="card-logo ">
           <% unless current_user.nil? %>
-          <div class="dropdown">
+
+          <div class="dropdown w-100">
+            <div class="align-buton">
             <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
             <i class="fas fa-plus btn btn-light"></i>
             </button>
@@ -36,23 +38,34 @@
               <% reposted = false %>
               <% @reposts.each do |repost| %>
                 <% if song.id == repost.song_id %>
-                  <%= link_to "delete a repost", user_repost_path(current_user, repost.id), method: :delete %>
+                  <%= link_to user_repost_path(current_user, repost.id), method: :delete do  %>
+                  <i class="fas fa-trash" style="color: #F7D796"></i>
+                  <% end %>
                   <% reposted = true %>
                 <% end %>
               <% end %>
               <% if reposted == false %>
-                  <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: song), method: :post %>
+                  <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
+                  <i class="fas fa-eraser mx-1" style="color: #F7D796"></i>
+                  <% end %>
               <% end %>
-              <%= link_to "edit", edit_artist_song_path(song) %>
+              <%= link_to edit_artist_song_path(song) do %>
+              <i class="fas fa-edit mx-1" style="color: #F7D796"></i>
+              <% end %>
             <% end %>
-            <%= link_to "show", artist_song_path(song) %>
+            <%= link_to artist_song_path(song) do %>
+            <i class="fas fa-music mx-1" style="color: #F7D796"></i>
+            <% end %>
+
           </div>
-          <br>
           <div>
-            <%= render 'shared/share' %>
+
           </div>
           <% end %>
         </div>
+
+        </div>
+
       </div>
     </div>
   </div>
