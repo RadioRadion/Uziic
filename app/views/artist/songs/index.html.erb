@@ -13,7 +13,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Add Yours song</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+              <div aria-hidden="true">&times;</div>
             </button>
           </div>
           <div class="modal-body">
@@ -60,6 +60,33 @@
                   <% end %>
                   <% end %>
                   <% if reposted == false %>
+
+                  <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
+                  <i class="fas fa-eraser mx-1" style="color: $orange"></i>
+                  <% end %>
+                  <% end %>
+                <button type="button" class="fas fa-edit mx-1" style="color: $orange" data-toggle="modal" data-target="#exampleModal2">
+                  </button>
+
+                        <!-- Modal -->
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Edit song</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <div aria-hidden="true">&times;</div>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <%= render 'formz', song: song%>
+                        </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  <% end %>
                     <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
                     <i class="fas fa-retweet" style="color: white"></i>
                     <% end %>
@@ -71,6 +98,7 @@
                     <%= link_to artist_song_path(song) do %>
                     <i class="fas fa-info-circle" style="color: white"></i>
                     <% end %>
+
                 </div>
                 <div>
                 </div>
