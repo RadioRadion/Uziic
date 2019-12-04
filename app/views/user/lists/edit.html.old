@@ -1,5 +1,3 @@
-<p class="h1 text-center">Edit a song</p>
-
 <div class="container d-flex flex-column justify-content-center">
   <div class= "formupdatelist">
     <%= simple_form_for(@list, url: user_list_path, method: :patch) do |f| %>

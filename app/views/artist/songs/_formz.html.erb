@@ -1,0 +1,13 @@
+<div class="formz">
+  <%= simple_form_for [:artist, song], method: :patch do |f| %>
+  <%= f.input :title %>
+  <%= f.input :tags %>
+  <%= f.input :description %>
+  <%= f.input :video, label: 'Sound'%>
+  <%= f.input :video_cache, as: :hidden %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+
+  <%= f.submit "Edit music", class: "btn btn-success" %>
+  <% end %>
+</div>
