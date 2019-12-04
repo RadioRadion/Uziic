@@ -19,7 +19,7 @@
     <%#= link_to "Playlist >", lists_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left"  %>
   </div> -->
   <%# end %>
-  <div class="row d-flex" style="margin: auto;padding: 0 30px;">
+  <div class="row d-flex">
     <% if @favorites.size == 0 %>
     <p>No music found</p>
     <% else %>
@@ -50,18 +50,22 @@
                 <% reposted = false %>
                 <% @reposts.each do |repost| %>
                 <% if song.id == repost.song_id %>
-                <%= link_to "delete a repost", user_repost_path(current_user, repost.id), method: :delete %>
+                <%= link_to user_repost_path(current_user, repost.id), method: :delete do %>
+                <i class="fas fa-retweet" style="color: $orange"></i>
+                <% end %>
                 <% reposted = true %>
                 <% end %>
                 <% end %>
                 <% if reposted == false %>
-                <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: song), method: :post %>
+                <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
+                <i class="fas fa-retweet" style="color: white"></i>
+                <% end %>
                 <% end %>
                 <% end %>
               </div>
               <br>
               <div>
-                <%= render 'shared/share' %>
+                <%#= render 'shared/share' %>
               </div>
               <% end %>
             </div>

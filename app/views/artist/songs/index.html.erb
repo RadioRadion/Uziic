@@ -54,23 +54,23 @@
                   <% @reposts.each do |repost| %>
                   <% if song.id == repost.song_id %>
                   <%= link_to user_repost_path(current_user, repost.id), method: :delete do  %>
-                  <i class="fas fa-trash" style="color: $orange"></i>
+                  <i class="fas fa-retweet" style="color: $orange"></i>
                   <% end %>
                   <% reposted = true %>
                   <% end %>
                   <% end %>
                   <% if reposted == false %>
-                  <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
-                  <i class="fas fa-eraser mx-1" style="color: $orange"></i>
-                  <% end %>
-                  <% end %>
-                  <%= link_to edit_artist_song_path(song) do %>
-                  <i class="fas fa-edit mx-1" style="color: $orange"></i>
-                  <% end %>
-                  <% end %>
-                  <%= link_to artist_song_path(song) do %>
-                  <i class="fas fa-info-circle" style="color: $orange"></i>
-                  <% end %>
+                    <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
+                    <i class="fas fa-retweet" style="color: white"></i>
+                    <% end %>
+                    <% end %>
+                    <%= link_to edit_artist_song_path(song) do %>
+                    <i class="fas fa-edit mx-1" style="color: white"></i>
+                    <% end %>
+                    <% end %>
+                    <%= link_to artist_song_path(song) do %>
+                    <i class="fas fa-info-circle" style="color: white"></i>
+                    <% end %>
                 </div>
                 <div>
                 </div>
