@@ -1,15 +1,20 @@
 body {
   position: relative;
+  background-color: gray;
+}
+
+h1 {
+  color: $orange;
 }
 
 .home-banner {
-  background-image:-webkit-linear-gradient(#FACBC5, #F7D796);
+  // background-image:-webkit-linear-gradient(#FACBC5, #F7D796);
   height: 100%;
   min-height: 87vh;
 }
 
 .container-main {
-  display: flex;
+  // display: flex;
   min-height: 77vh;
   }
 

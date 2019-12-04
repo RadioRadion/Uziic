@@ -24,10 +24,12 @@
   text-decoration:none;
   color: white;
   transition: all ease 300ms;
+  padding-bottom: 34px;
 
   &:hover {
-    color:#FACBC5;
+    color: $orange;
     transition: all ease 300ms;
+    border-bottom: 2px solid white;
   }
 }
 
@@ -46,7 +48,7 @@
   transition: all ease 300ms;
 
   &:hover {
-    color:#FACBC5;
+    color: $orange;
     transition: all ease 300ms;
   }
 }

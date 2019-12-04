@@ -1,3 +1,6 @@
+<p class="h1 text-center">My News</p>
+
+
 <% result = [] %>
 <% @favorites.each do |favorite| %>
   <% favorite.followed.songs.each { |song| result << song } %>
