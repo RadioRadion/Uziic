@@ -1,35 +1,37 @@
-<p class="h1 text-center">My News</p>
+<div class="container">
+
+  <p class="h1 text-center">News</p>
 
 
-<% result = [] %>
-<% @favorites.each do |favorite| %>
+  <% result = [] %>
+  <% @favorites.each do |favorite| %>
   <% favorite.followed.songs.each { |song| result << song } %>
   <% favorite.followed.reposts.each { |repost| result << repost.song } %>
-<% end %>
+  <% end %>
 
-<% lastSongs = result.sort_by { |obj| obj.created_at } %>
-<% lastSongs %>
+  <% lastSongs = result.sort_by { |obj| obj.created_at } %>
+  <% lastSongs %>
 
 
-<% unless params[:query].nil? %>
-<div class="sidebar w-25 d-flex flex-column align-items-center justify-content-around text-left mt-5">
-  <%= link_to "Title >",root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left" %>
-  <%= link_to "Playlist >", lists_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left"  %>
-</div>
-<% end %>
-<div class="row d-flex flex-row w-100" style="margin: auto;padding: 0 30px;">
-  <% if @favorites.size == 0 %>
+  <%# unless params[:query].nil? %>
+<!--   <div class="sidebar w-25 d-flex flex-column align-items-center justify-content-around text-left mt-5">
+    <%#= link_to "Title >",root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left" %>
+    <%#= link_to "Playlist >", lists_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left"  %>
+  </div> -->
+  <%# end %>
+  <div class="row d-flex" style="margin: auto;padding: 0 30px;">
+    <% if @favorites.size == 0 %>
     <p>No music found</p>
-  <% else %>
+    <% else %>
     <% lastSongs.each do |song| %>
-      <div class="w-75 col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
-        <div class="card" style="width: 100%;">
-          <% if song.photo.present? %>
-          <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
-          <% end %>
-          <div class="card-body">
-            <audio id="player" controls controlsList="nodownload">
-              <source src="<%= song.video %>" type="audio/mp3">
+    <div class="w-75 col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center">
+      <div class="card" style="width: 100%;">
+        <% if song.photo.present? %>
+        <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
+        <% end %>
+        <div class="card-body">
+          <audio id="player" controls controlsList="nodownload">
+            <source src="<%= song.video %>" type="audio/mp3">
             </audio>
             <h5 class="card-title-song"><%= song.title  %></h5>
             <h6 class="card-artistname"><%= link_to song.user.pseudo, user_path(song.user) %></h6>
@@ -37,24 +39,24 @@
               <% unless current_user.nil? %>
               <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-                <i class="fas fa-plus btn btn-light"></i>
+                  <i class="fas fa-plus btn btn-light"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <% @user_lists.each do |list| %>
-                    <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
+                  <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
                   <% end %>
                 </div>
                 <% unless current_user.nil? %>
-                  <% reposted = false %>
-                  <% @reposts.each do |repost| %>
-                    <% if song.id == repost.song_id %>
-                      <%= link_to "delete a repost", user_repost_path(current_user, repost.id), method: :delete %>
-                      <% reposted = true %>
-                    <% end %>
-                  <% end %>
-                  <% if reposted == false %>
-                    <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: song), method: :post %>
-                  <% end %>
+                <% reposted = false %>
+                <% @reposts.each do |repost| %>
+                <% if song.id == repost.song_id %>
+                <%= link_to "delete a repost", user_repost_path(current_user, repost.id), method: :delete %>
+                <% reposted = true %>
+                <% end %>
+                <% end %>
+                <% if reposted == false %>
+                <%= link_to "add a repost", user_reposts_path(user_id: current_user, song_id: song), method: :post %>
+                <% end %>
                 <% end %>
               </div>
               <br>
@@ -68,8 +70,8 @@
           </div>
         </div>
       </div>
-    <% end %>
-  <% end %>
-</div>
-
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

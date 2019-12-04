@@ -1,4 +1,8 @@
-<p class="h1 text-center"><%= current_user.pseudo %></p>
+<% if @user.pseudo.nil? %>
+  <p class="h1 text-center"><%= @user.name %></p>
+<% else %>
+  <p class="h1 text-center"><%= @user.pseudo %></p>
+<% end %>
 
 <div class="container">
   <% follow = false %>
