@@ -1,15 +1,3 @@
-<div class="container d-flex flex-column justify-content-center">
-  <div class= "formupdatelist">
-    <%= simple_form_for(@list, url: user_list_path, method: :patch) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :tags %>
-      <%= f.input :post_at, as: :string, required: false, input_html: {class: "datepicker"}%>
-      <%= f.submit "Update", class: "btn-updatelist" %>
-      <div>
-        <% if @list_songs.size == 0 %>
-          <p>No music</p>
-        <% else %>
-
 <div id="container">
   <div id="audio-image">
     <img class="cover">
@@ -37,17 +25,5 @@
         <li song=" <%= list_song.song.video %> " cover=<%= list_song.song.photo %> artist=""><%= list_song.song.title %></li>
       <% end %>
     </ul>
-  </div>
-</div>
-
-          <table>
-          <% @list_songs.each do |list_song| %>
-            <tr><td><%= list_song.song.title %></td>
-            <td><%= link_to "", song_list_song_path(list_song: list_song.id, song_id: list_song.song_id), method: :delete, class: "fas fa-minus btn btn-light" %></td></tr>
-          <% end %>
-          </table>
-        <% end %>
-      </div>
-    <% end %>
   </div>
 </div>
