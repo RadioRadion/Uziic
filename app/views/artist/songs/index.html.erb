@@ -28,7 +28,7 @@
     <div class="w-75 col-lg-3 col-md-3 col-sm-12">
       <div class="card">
         <% if song.photo.present? %>
-        <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
+          <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
         <% end %>
         <%#= render 'shared/share' %>
         <div class="card-body">
@@ -46,55 +46,48 @@
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <% @user_lists.each do |list| %>
-                    <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
+                      <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
                     <% end %>
                   </div>
                   <% unless current_user.nil? %>
-                  <% reposted = false %>
-                  <% @reposts.each do |repost| %>
-                  <% if song.id == repost.song_id %>
-                  <%= link_to user_repost_path(current_user, repost.id), method: :delete do  %>
-                  <i class="fas fa-retweet" style="color: $orange"></i>
-                  <% end %>
-                  <% reposted = true %>
-                  <% end %>
-                  <% end %>
-                  <% if reposted == false %>
+                    <% reposted = false %>
+                    <% @reposts.each do |repost| %>
+                      <% if song.id == repost.song_id %>
+                        <%= link_to user_repost_path(current_user, repost.id), method: :delete do  %>
+                        <i class="fas fa-retweet" style="color: $orange"></i>
+                        <% end %>
+                        <% reposted = true %>
+                      <% end %>
+                    <% end %>
+                    <% if reposted == false %>
 
-                  <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
-                  <i class="fas fa-eraser mx-1" style="color: $orange"></i>
-                  <% end %>
-                  <% end %>
-                <button type="button" class="fas fa-edit mx-1" style="color: $orange" data-toggle="modal" data-target="#exampleModal2">
-                  </button>
+                      <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
+                        <i class="fas fa-retweet" style="color: white"></i>
+                        <% end %>
+                    <% end %>
+                    <a type="button" class="fas fa-edit mx-1" style="color: white" data-toggle="modal" data-target="#exampleModal2">
+                    </a>
 
-                        <!-- Modal -->
-                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Edit song</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <div aria-hidden="true">&times;</div>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <%= render 'formz', song: song%>
-                        </div>
+                          <!-- Modal -->
+                      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit song</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <div aria-hidden="true">&times;</div>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <%= render 'formz', song: song%>
+                          </div>
 
+                          </div>
                         </div>
                       </div>
-                    </div>
 
                   <% end %>
-                    <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
-                    <i class="fas fa-retweet" style="color: white"></i>
-                    <% end %>
-                    <% end %>
-                    <%= link_to edit_artist_song_path(song) do %>
-                    <i class="fas fa-edit mx-1" style="color: white"></i>
-                    <% end %>
-                    <% end %>
+
                     <%= link_to artist_song_path(song) do %>
                     <i class="fas fa-info-circle" style="color: white"></i>
                     <% end %>
