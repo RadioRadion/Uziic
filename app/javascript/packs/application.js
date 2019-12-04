@@ -99,8 +99,8 @@ $('#volume').change(function(event){
 
 //Time/Duration
 function showDuration(){
-  $(audio).bind('timeup<a href="https://www.jqueryscript.net/time-clock/">date</a>',function(){
-    //Get hours and minutes
+  setInterval((e) => {
+    console.log(audio.currentTime)
     var s = parseInt(audio.currentTime % 60);
     var m = parseInt(audio.currentTime / 60) % 60;
     if(s < 10){
@@ -112,5 +112,5 @@ function showDuration(){
       value = Math.floor((100 / audio.duration) * audio.currentTime);
     }
     $('#progress').css('width',value+'%');
-  });
+  }, 200);
 }

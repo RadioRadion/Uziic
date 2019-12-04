@@ -45,8 +45,8 @@
                   <% reposted = false %>
                   <% @reposts.each do |repost| %>
                   <% if song.id == repost.song_id %>
-                  <%= link_to user_repost_path(current_user, repost.id), method: :delete do %>
-                  <i class="as fa-retweet" style="color: $orange"></i>
+                    <%= link_to user_repost_path(current_user, repost.id), method: :delete do %>
+                    <i class="fas fa-retweet" style="color: $orange"></i>
                   <% end %>
                   <% reposted = true %>
                   <% end %>
