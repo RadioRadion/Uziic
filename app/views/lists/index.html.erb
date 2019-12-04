@@ -1,39 +1,24 @@
+<p class="h1 text-center">Playlists</p>
+
+
 <div class="container">
   <div>
     <%= link_to "Title", root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess" %>
     <%= link_to "Playlist", lists_path( query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess"  %>
   </div>
 
-  <div class="row" >
     <% @lists.each do |list| %>
-      <div class="col-4">
-        <%= render 'shared/player', list: list %>
+    <div class="card-product">
+      <div class="card-product-infos">
+        <h5 class="card-title"><%= "#{list.name} ( #{list.tags} )" %></h5>
+        <h6> <%= list.user.pseudo %> </h6>
+        <p class="card-logo">
+          <a class="btn btn-light"><i class="fas fa-play"></i></a>
+          <%= link_to "", edit_user_list_path(list), class: "fas fa-edit btn btn-light" %>
+          <%= link_to "", user_list_path(list), method: :delete, class: "fas fa-trash btn btn-light" %>
+        </p>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
-
-
-
-<!--   <div class="row" >
-    <%# @lists.each do |list| %>
-      <div class="col-4">
-        <div class="card" style="width: 18rem;">
-          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"><%#= "#{list.name} ( #{list.tags} )" %></h5>
-              <p class="card-logo">
-                <a class="btn btn-light"><i class="fas fa-play"></i></a>
-                <%#= link_to "", edit_list_path(list), class: "fas fa-edit btn btn-light" %>
-                <a class="btn btn-light"><i class="fas fa-circle"></i></a>
-                <a class="btn btn-light"><i class="fas fa-music"></i></a>
-                <%#= link_to "", list_path(list), method: :delete, class: "fas fa-angry btn btn-light" %>
-              </p>
-          </div>
-        </div>
-      </div>
-    <%# end %>
-  </div>
-</div> -->
-
-

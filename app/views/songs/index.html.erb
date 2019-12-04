@@ -1,74 +1,73 @@
-<div>
+<div class="container">
   <% if params[:query].nil? %>
-    <div class="banner">
-      <div class="container">
-        <h1> <strong> Uziic be a part</strong> of <strong>your city's sound</strong></h1>
-      </div>
-    </div>
-    <% end %>
+  <div class="banner">
+    <h1> <strong> Uziic be a part</strong> of <strong>your city's sound</strong></h1>
+
+  </div>
+  <% end %>
 
 
-<% unless params[:query].nil? %>
-<div class="sidebar w-25 d-flex flex-column align-items-center justify-content-around text-left mt-5">
-  <%= link_to "Title >",root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left" %>
-  <%= link_to "Playlist >", lists_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left"  %>
-</div>
-<% end %>
-  <div class="row d-flex flex-row w-100" style="margin: auto;padding: 0 30px;">
+  <% unless params[:query].nil? %>
+  <div class="sidebar w-25 d-flex flex-column align-items-center justify-content-around text-left mt-5">
+    <%= link_to "Title >",root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left" %>
+    <%= link_to "Playlist >", lists_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left"  %>
+  </div>
+  <% end %>
+  <div class="row d-flex">
     <% if @songs.size == 0 %>
-      <p>No music found</p>
+    <p>No music found</p>
     <% else %>
-      <% @songs.each do |song| %>
-        <div class="w-75 col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center">
-          <div class="card" style="width: 100%;">
-            <% if song.photo.present? %>
-            <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
-            <% end %>
-            <div class="card-body">
-              <audio id="player" controls controlsList="nodownload">
-                <source src="<%= song.video %>" type="audio/mp3">
-              </audio>
-              <h5 class="card-title-song"><%= song.title  %></h5>
-              <h6 class="card-artistname"><%= link_to song.user.pseudo, user_path(song.user) %></h6>
-              <div class="card-logo d-flex justify-content-center align-items-center">
-                <% unless current_user.nil? %>
-                <div class="dropdown w-100">
-                  <div class="align-buton2">
-                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-                      <i class="fas fa-plus btn btn-light"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <% @user_lists.each do |list| %>
-                        <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
-                      <% end %>
-                    </div>
-                    <% unless current_user.nil? %>
-                      <% reposted = false %>
-                      <% @reposts.each do |repost| %>
-                        <% if song.id == repost.song_id %>
-                          <%= link_to user_repost_path(current_user, repost.id), method: :delete do %>
-                          <i class="fas fa-eraser mx-1" style="color: #F7D796"></i>
-                          <% end %>
-                          <% reposted = true %>
-                          <% end %>
-                          <% end %>
-                          <% if reposted == false %>
-                            <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
-                            <i class="fas fa-music mx-1" style="color: #F7D796"></i>
-                          <% end %>
-                      <% end %>
-                  <% end %>
+    <% @songs.each do |song| %>
+    <div class="w-75 col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center">
+      <div class="card" style="width: 100%;">
+        <% if song.photo.present? %>
+        <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
+        <% end %>
+        <div class="card-body">
+          <audio id="player" controls controlsList="nodownload">
+            <source src="<%= song.video %>" type="audio/mp3">
+            </audio>
+            <h5 class="card-title-song"><%= song.title  %></h5>
+            <h6 class="card-artistname"><%= link_to song.user.pseudo, user_path(song.user) %></h6>
+            <div class="card-logo d-flex justify-content-center align-items-center">
+              <% unless current_user.nil? %>
+              <div class="dropdown w-100">
+                <div class="align-buton2">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+                    <i class="fas fa-plus btn btn-light"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <% @user_lists.each do |list| %>
+                    <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
+                    <% end %>
                   </div>
+                  <% unless current_user.nil? %>
+                  <% reposted = false %>
+                  <% @reposts.each do |repost| %>
+                  <% if song.id == repost.song_id %>
+                  <%= link_to user_repost_path(current_user, repost.id), method: :delete do %>
+                  <i class="fas fa-eraser mx-1" style="color: $orange"></i>
+                  <% end %>
+                  <% reposted = true %>
+                  <% end %>
+                  <% end %>
+                  <% if reposted == false %>
+                  <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
+                  <i class="fas fa-retweet" style="color: $orange"></i>
+                  <% end %>
+                  <% end %>
+                  <% end %>
                 </div>
-                <div>
-                  <%#= render 'shared/share' %>
-                </div>
-                <% end %>
               </div>
+              <div>
+                <%#= render 'shared/share' %>
+              </div>
+              <% end %>
             </div>
           </div>
         </div>
+      </div>
       <% end %>
-    <% end %>
+      <% end %>
   </div>
 </div>

@@ -22,7 +22,7 @@
 
 
   &:hover {
-    color: #FACBC5;
+    color: $orange;
     transition: all ease 300ms;
   }
 }
@@ -31,7 +31,7 @@
   color: white;
 
   &:hover {
-    color: #FACBC5;
+    color: $orange;
     text-decoration: none;
     transition: all ease 300ms;
   }
@@ -46,7 +46,7 @@
 
 
   &:hover {
-    color: #FACBC5;
+    color: $orange;
     transition: all ease 300ms;
     text-decoration: none;
 
@@ -64,7 +64,7 @@
 
 
   &:hover {
-    color: #FACBC5;
+    color: $orange;
     transition: all ease 300ms;
     text-decoration: none;
   }
@@ -73,7 +73,7 @@
 .submit-edit {
   margin: 10px;
   background: black;
-  color: #FACBC5;
+  color: $orange;
   transition: all ease 300ms;
   display: inline-flex;
   margin: 10px;
@@ -90,7 +90,7 @@
 
 .btn-login {
   background: black;
-  color: #FACBC5;
+  color: $orange;
   transition: all ease 300ms;
   display: inline-flex;
   margin: 10px;
@@ -115,7 +115,7 @@
 
 
   &:hover {
-    color: #FACBC5;
+    color: $orange;
     transition: all ease 300ms;
     text-decoration: none;
   }
@@ -133,7 +133,7 @@
 
 
   &:hover {
-    color: #FACBC5;
+    color: $orange;
     transition: all ease 300ms;
     text-decoration: none;
   }
@@ -142,7 +142,7 @@
 
 .btn-newlist {
   margin: 10px;
-  color: #FACBC5;
+  color: $orange;
   transition: all ease 300ms;
   display: inline-flex;
   margin: 10px;
