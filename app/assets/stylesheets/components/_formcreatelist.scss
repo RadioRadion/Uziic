@@ -2,10 +2,9 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: 10px 20px;
-  color: #FAD1B1;
+  color: $orange;
   cursor: pointer;
   border-radius: 8px;
-  font-family: 'Varela Round';
 }
 
 .modal-body {
@@ -20,12 +19,12 @@
 
 .btn-createlist {
 
-  background: #FACBC5;
+  background: $orange;
   color: black;
   transition: all ease 300ms;
   display: inline-flex;
   margin: 10px;
-  border: #FACBC5;
+  border: $orange;
   text-align: center;
 
 

@@ -1,8 +1,11 @@
 <div class="container">
-  <button type="button" class="btn-createlist" data-toggle="modal" data-target="#exampleModal">
-  Add Song
+  <p class="h1 text-center">My musics</p>
+
+  <button type="button" class="btn-createlist btn btn-warning text-center" data-toggle="modal" data-target="#exampleModal">
+    Add Song +
   </button>
   <div class="row d-flex">
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -10,7 +13,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Add Yours song</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
@@ -19,7 +22,8 @@
         </div>
       </div>
     </div>
-    <!-- modal fin -->
+
+
     <% @songs.each do |song| %>
     <div class="w-75 col-lg-3 col-md-3 col-sm-12">
       <div class="card">
@@ -30,66 +34,52 @@
         <div class="card-body">
           <audio id="player" controls>
             <source src="<%= song.video %>" type="audio/mp3" controlscontrolsList="nodownload">
-          </audio>
-          <h5 class="card-title-song"><%= song.title  %></h5>
-          <h6 class="card-artistname"><%= song.user.pseudo %></h6>
-          <div class="card-logo ">
-            <% unless current_user.nil? %>
-            <div class="dropdown w-100">
-              <div class="align-buton">
-                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-                <i class="fas fa-plus btn btn-light"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <% @user_lists.each do |list| %>
-                  <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
+            </audio>
+            <h5 class="card-title-song"><%= song.title  %></h5>
+            <h6 class="card-artistname"><%= song.user.pseudo %></h6>
+            <div class="card-logo ">
+              <% unless current_user.nil? %>
+              <div class="dropdown w-100">
+                <div class="align-buton">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
+                    <i class="fas fa-plus btn btn-light"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <% @user_lists.each do |list| %>
+                    <%= link_to list.name, song_list_songs_path(list_id: list.id, song_id: song.id), class: "dropdown-item", method: :post %>
+                    <% end %>
+                  </div>
+                  <% unless current_user.nil? %>
+                  <% reposted = false %>
+                  <% @reposts.each do |repost| %>
+                  <% if song.id == repost.song_id %>
+                  <%= link_to user_repost_path(current_user, repost.id), method: :delete do  %>
+                  <i class="fas fa-trash" style="color: $orange"></i>
+                  <% end %>
+                  <% reposted = true %>
+                  <% end %>
+                  <% end %>
+                  <% if reposted == false %>
+                  <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
+                  <i class="fas fa-eraser mx-1" style="color: $orange"></i>
+                  <% end %>
+                  <% end %>
+                  <%= link_to edit_artist_song_path(song) do %>
+                  <i class="fas fa-edit mx-1" style="color: $orange"></i>
+                  <% end %>
+                  <% end %>
+                  <%= link_to artist_song_path(song) do %>
+                  <i class="fas fa-info-circle" style="color: $orange"></i>
                   <% end %>
                 </div>
-                <% unless current_user.nil? %>
-                <% reposted = false %>
-                <% @reposts.each do |repost| %>
-                <% if song.id == repost.song_id %>
-                <%= link_to user_repost_path(current_user, repost.id), method: :delete do  %>
-                <i class="fas fa-trash" style="color: #F7D796"></i>
-                <% end %>
-                <% reposted = true %>
-                <% end %>
-                <% end %>
-                <% if reposted == false %>
-                <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
-                <i class="fas fa-eraser mx-1" style="color: #F7D796"></i>
-                <% end %>
-                <% end %>
-                <button type="button" class="fas fa-edit mx-1" style="color: #F7D796" data-toggle="modal" data-target="#exampleModal2">
-                </button>
-                  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel" style="color: #FAD1B1">Edit song</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <%= render 'formz',song: song%>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-                <%= link_to artist_song_path(song) do %>
-                <i class="fas fa-music mx-1" style="color: #F7D796"></i>
+                <div>
+                </div>
                 <% end %>
               </div>
-              <div>
-              </div>
-              <% end %>
             </div>
           </div>
         </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-</div>

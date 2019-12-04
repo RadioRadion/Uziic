@@ -23,7 +23,7 @@
 
 .card-title-song  {
   font-weight: bold;
-  color: #F7D796;
+  color: $orange;
   text-transform: uppercase;
   margin: 0;
   font-size: .8em;
@@ -32,7 +32,7 @@
 }
 
 .card-artistname {
-  color: #F7D796;
+  color: $orange;
   text-transform: uppercase;
   margin: 0;
   font-size: .6em;
@@ -46,26 +46,29 @@
 }
 
 .dropdown-item:hover {
-  color: #F7D796;
+  color: $orange;
 }
 
+.dropdown-menu.show {
+  z-index: 7;
+}
 
 #dropdownMenuButton {
   color: white;
 }
 
 #dropdownMenuButton .btn-light {
-  color: #F7D796;
+  color: $orange;
   background-color: black;
 }
 
 a:hover {
   text-decoration: none;
-  color: #F7D796;
+  color: $orange;
 }
 
 a {
-  color: #F7D796;
+  color: $orange;
 }
 
 .btn-light{
@@ -132,27 +135,27 @@ a {
 .card-productM h2 {
   font-size: 16px;
   font-weight: bold;
-  color: #F7D796;
+  color: $orange;
   margin: 0;
 }
 
 .card-productM h5 {
   font-size: 16px;
   font-weight: bold;
-  color: #F7D796;
+  color: $orange;
   margin: 0;
 }
 
 .card-productM a {
   font-size: 16px;
   font-weight: bold;
-  color: #F7D796;
+  color: $orange;
   margin: 0;
 }
 
 .card-productM p {
   font-size: 12px;
-  color: #F7D796;
+  color: $orange;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
