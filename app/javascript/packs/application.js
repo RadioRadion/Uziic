@@ -98,11 +98,8 @@ $('#volume').change(function(event){
 });
 
 //Time/Duration
-function showDuration(event){
-  event.preventDefault();
-  $(audio).bind('timeup<a href="https://www.jqueryscript.net/time-clock/">date</a>',function(event){
-    event.preventDefault();
-
+function showDuration(){
+  $(audio).bind('timeup<a href="https://www.jqueryscript.net/time-clock/">date</a>',function(){
     //Get hours and minutes
     var s = parseInt(audio.currentTime % 60);
     var m = parseInt(audio.currentTime / 60) % 60;
