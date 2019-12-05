@@ -39,7 +39,7 @@
               <% unless current_user.nil? %>
               <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-                  <i class="fas fa-plus btn btn-light"></i>
+                  <i class="fas fa-plus btn btn-light" style="color: white"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <% @user_lists.each do |list| %>
@@ -47,20 +47,17 @@
                   <% end %>
                 </div>
                 <% unless current_user.nil? %>
-                <% reposted = false %>
-                <% @reposts.each do |repost| %>
-                <% if song.id == repost.song_id %>
-                <%= link_to user_repost_path(current_user, repost.id), method: :delete do %>
-                <i class="fas fa-retweet" style="color: $orange"></i>
-                <% end %>
-                <% reposted = true %>
-                <% end %>
-                <% end %>
-                <% if reposted == false %>
-                <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
-                <i class="fas fa-retweet" style="color: white"></i>
-                <% end %>
-                <% end %>
+                <div id="link-repost-song-<%= song.id %>">
+                      <% if @reposts.find_by(song: song) %>
+                        <%= link_to user_repost_path(current_user, @reposts.find_by(song: song)), method: :delete do  %>
+                          <i class="fas fa-retweet" style="color: $orange"></i>
+                        <% end %>
+                      <% else %>
+                        <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post, remote: true do %>
+                          <i class="fas fa-retweet" style="color: white"></i>
+                        <% end %>
+                      <% end %>
+                    </div>
                 <% end %>
               </div>
               <br>

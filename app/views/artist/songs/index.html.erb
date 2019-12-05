@@ -60,21 +60,17 @@
                     <% end %>
                   </div>
                   <% unless current_user.nil? %>
-                    <% reposted = false %>
-                    <% @reposts.each do |repost| %>
-                      <% if song.id == repost.song_id %>
-                        <%= link_to user_repost_path(current_user, repost.id), method: :delete do  %>
-                        <i class="fas fa-retweet" style="color: $orange"></i>
+                    <div id="link-repost-song-<%= song.id %>">
+                      <% if @reposts.find_by(song: song) %>
+                        <%= link_to user_repost_path(current_user, @reposts.find_by(song: song)), method: :delete do  %>
+                          <i class="fas fa-retweet" style="color: $orange"></i>
                         <% end %>
-                        <% reposted = true %>
+                      <% else %>
+                        <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post, remote: true do %>
+                          <i class="fas fa-retweet" style="color: white"></i>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                    <% if reposted == false %>
-
-                      <%= link_to user_reposts_path(user_id: current_user, song_id: song), method: :post do %>
-                        <i class="fas fa-retweet" style="color: white"></i>
-                        <% end %>
-                    <% end %>
+                    </div>
                     <a type="button" class="fas fa-edit mx-1" style="color: white" data-toggle="modal" data-target="#exampleModal<%= i %>">
                     </a>
 

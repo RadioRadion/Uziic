@@ -1,0 +1,6 @@
+const repost_link = document.querySelector("#link-repost-song-<%= @song.id %>");
+console.log("coco");
+console.log(repost_link);
+repost_link.innerHTML = `<%= link_to user_repost_path(current_user, @repost), method: :delete do  %>
+                          <i class="fas fa-retweet" style="color: $orange"></i>
+                        <% end %>`

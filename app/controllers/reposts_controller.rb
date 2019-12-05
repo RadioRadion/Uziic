@@ -8,6 +8,7 @@ class RepostsController < ApplicationController
     @repost = Repost.new(song: @song)
     @repost.user = current_user
     @repost.save
+    respond_to { |format| format.js }
   end
 
   def destroy
