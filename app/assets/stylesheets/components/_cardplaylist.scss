@@ -1,62 +1,172 @@
-.card-product {
-  overflow: hidden;
-  height: 200px;
-  background: black;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin: 120px;
+.card-playlist {
+  background-color: black;
+  margin: 20px;
+  padding: 15px;
+  height: 600px;
+}
 
-  &:hover{
-    transform: scale(1);
-    box-shadow: 5px 20px 30px rgba(0,0,0,0.5);
+.playlist-player {
+  width: 100%;
+}
+
+#audio-image .cover {
+  width: 250px;
+  height:250px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  .clearfix {
+    width: 100%;
+  }
+  #playlist {
+    padding: 0;
+    margin: 0;
+    width: 100%;
   }
 }
 
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
+.card-lecteur {
+  background-color: black;
+  text-align: center;
 }
 
-.card-product h2 {
-  font-size: 16px;
+.card-title {
+  color: $orange;
+  font-weight: bold;;
+  font-family: sans-serif;
+  font-variant: unset;
+  text-shadow: 0 0  5px black;
+}
+
+.title {
   font-weight: bold;
   color: $orange;
+  text-transform: uppercase;
   margin: 0;
-}
-
-.card-product h5 {
   font-size: 16px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+#duration {
+  color: $orange;
+
+}
+
+.time-song {
+padding: 20px;
+}
+
+#progress-bar {
+  width: 300px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 9px;
+  height: 10px;
+  background: url(asset_path('progress_bg.png')) no-repeat;
+  float: left;
+
+}
+
+#progress {
+  background: url(asset_path('progress.png')) no-repeat;
+  height: 18px;
+  display: flex;
+  width: 300px;
+
+  // display: inline-block;
+}
+
+#buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: auto;
+  padding: 20px;
+ }
+
+
+input#volume {
+  width: 70%;
+  margin-left: 10px;
+  -webkit-appearance: none !important;
+  height: 1px;
+  margin-bottom: 20px;
+  color: $orange;
+
+}
+
+button#play {
+  width: 50px;
+  height: 50px;
+  background: url(asset_path('play.png')) no-repeat ;
+  background-size: contain;
+  float: left;
+  border: none;
+}
+
+button#pause {
+  width: 50px;
+  height: 50px;
+  background: url(asset_path('pause.png')) no-repeat;
+  background-size: contain;
+  float: left;
+  border: none;
+}
+
+button#stop {
+  width: 50px;
+  height: 50px;
+  background: url(asset_path('stop.png')) no-repeat;
+  background-size: contain;
+  float: left;
+  border: none;
+}
+
+button#prev {
+  width: 50px;
+  height: 50px;
+  background: url(asset_path('prev.png')) no-repeat;
+  background-size: contain;
+  float: left;
+  margin-top: 10px;
+  border: none;
+  margin-left: 10px;
+
+}
+
+button#next {
+  width: 50px;
+  height: 50px;
+  background: url(asset_path('next.png')) no-repeat;
+  background-size: contain;
+  float: right;
+  margin-top: 10px;
+  border: none;
+}
+
+#playlist {
+  list-style: none;
+  color: $orange;
+}
+#playlist li {
+  cursor: pointer;
+  display: flex;
+}
+#playlist li.active {
   font-weight: bold;
-  color: $orange;
-  margin: 0;
-}
-
-.card-product h6 {
-  font-size: 16px;
-  font-weight: bold;
-  color: $orange;
-  margin: 0;
-}
-
-
-.card-product a {
-  font-size: 16px;
-  font-weight: bold;
-  color: $orange;
-  margin: 0;
-}
-
-.card-product p {
-  font-size: 12px;
-  color: $orange;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
+  background: #666;
 }
