@@ -9,18 +9,18 @@
 
   <div class= "searchbar">
     <% if current_page?(root_path) %>
-      <%= form_tag root_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form control", placeholder: "Find title, artist, tag", class:"rounded"  %>
-      <%= text_field_tag :query_town, params[:query_town], class: "form control", placeholder: "Find town", class:"rounded" %>
-      <%= button_tag(type: "submit", class: "btn button-search") do %><i class="fas fa-search"></i><% end %>
+    <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "form control", placeholder: "Find title, artist, tag", class:"rounded"  %>
+    <%= text_field_tag :query_town, params[:query_town], class: "form control", placeholder: "Find town", class:"rounded" %>
+    <%= button_tag(type: "submit", class: "btn button-search") do %><i class="fas fa-search"></i><% end %>
     <% end %>
     <% else %>
-      <%= form_tag lists_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form control", placeholder: "Find title, artist, tag" %>
-      <%= text_field_tag :query_town, params[:query_town], class: "form control", placeholder: "Find town" %>
-      <%= button_tag(type: "submit", class: "btn button-search") do %><i class="fas fa-search"></i><% end %>
+    <%= form_tag lists_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "form control", placeholder: "Find title, artist, tag" %>
+    <%= text_field_tag :query_town, params[:query_town], class: "form control", placeholder: "Find town" %>
+    <%= button_tag(type: "submit", class: "btn button-search") do %><i class="fas fa-search"></i><% end %>
     <% end %>
-  <% end %>
+    <% end %>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -31,26 +31,23 @@
 
         </li>
         <% unless current_user.nil? %>
-          <li class="nav-item">
-            <%= link_to 'News', user_favorites_path(current_user), class: "button-menu" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'My music', artist_songs_path, class: "button-menu" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'My playlists', user_lists_path, class: "button-menu" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'My stream', user_reposts_path(current_user), class: "button-menu" %>
-          </li>
-
-          <li class="nav-item dropdown">
-            <div class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-              <%= current_user.name.upcase %>
-            </div>
-          </li>
-          <% end %>
-          <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'News', user_favorites_path(current_user), class: "button-menu" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'My music', artist_songs_path, class: "button-menu" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'My playlists', user_lists_path, class: "button-menu" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'My stream', user_reposts_path(current_user), class: "button-menu" %>
+        </li>
+        <% if user_signed_in? %>
+        <li class="dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.name.upcase %>
+          </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <%= link_to "Profil", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
@@ -59,6 +56,7 @@
           <%= link_to "Login", new_user_session_path, class: "button-log" %>
           <% end %>
         </li>
+        <% end %>
       </div>
     </ul>
   </div>

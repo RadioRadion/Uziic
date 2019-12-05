@@ -7,6 +7,10 @@ h1 {
   color: $orange;
 }
 
+i:hover {
+  color: $orange !important;
+}
+
 .home-banner {
   // background-image:-webkit-linear-gradient(#FACBC5, #F7D796);
   height: 100%;
