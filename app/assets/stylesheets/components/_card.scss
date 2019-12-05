@@ -21,6 +21,10 @@
   content: none;
 }
 
+.fa-edit:hover {
+  color: $orange !important;
+}
+
 .card-title-song  {
   font-weight: bold;
   color: $orange;
