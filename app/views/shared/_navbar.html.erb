@@ -31,23 +31,24 @@
 
         </li>
         <% unless current_user.nil? %>
-        <li class="nav-item">
-          <%= link_to 'News', user_favorites_path(current_user), class: "button-menu" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'My music', artist_songs_path, class: "button-menu" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'My playlists', user_lists_path, class: "button-menu" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'My stream', user_reposts_path(current_user), class: "button-menu" %>
-        </li>
+          <li class="nav-item">
+            <%= link_to 'News', user_favorites_path(current_user), class: "button-menu" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'My music', artist_songs_path, class: "button-menu" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'My playlists', user_lists_path, class: "button-menu" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'My stream', user_reposts_path(current_user), class: "button-menu" %>
+          </li>
 
-        <li class="nav-item dropdown">
-          <div class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-            <%= current_user.name.upcase %>
-          </div>
+          <li class="nav-item dropdown">
+            <div class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              <%= current_user.name.upcase %>
+            </div>
+          </li>
           <% end %>
           <% if user_signed_in? %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
