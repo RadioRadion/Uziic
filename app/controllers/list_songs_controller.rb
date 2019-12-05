@@ -4,7 +4,7 @@ class ListSongsController < ApplicationController
     @listsong.song_id = params[:song_id]
     @listsong.list_id = params[:list_id]
     if @listsong.save
-      redirect_to root_path
+      redirect_back(fallback_location: root_path)
     else
       render :new
     end
