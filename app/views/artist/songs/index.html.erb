@@ -42,7 +42,7 @@
         <% end %>
         <%#= render 'shared/share' %>
         <div class="card-body">
-          <audio id="player" controls>
+          <audio id="player" class="w-100" controls>
             <source src="<%= song.video %>" type="audio/mp3" controlscontrolsList="nodownload">
             </audio>
             <div class="name"><h5 class="card-title-song"><%= song.title  %></h5></div>
