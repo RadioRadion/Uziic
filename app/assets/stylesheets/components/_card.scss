@@ -5,7 +5,7 @@
   font-weight: bold;
   display: flex;
   margin: 20px;
-  height: 380px;
+  // height: 380px;
   &:hover{
     box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
   }
@@ -166,3 +166,7 @@ a {
   padding: 16px;
 }
 
+.name {
+  max-height: 23px;
+  overflow: hidden;
+}

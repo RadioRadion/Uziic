@@ -35,8 +35,8 @@
           <audio id="player" controls>
             <source src="<%= song.video %>" type="audio/mp3" controlscontrolsList="nodownload">
             </audio>
-            <h5 class="card-title-song"><%= song.title  %></h5>
-            <h6 class="card-artistname"><%= song.user.pseudo %></h6>
+            <div class="name"><h5 class="card-title-song"><%= song.title  %></h5></div>
+            <h6 class="card-artistname"><%= link_to song.user.pseudo, user_path(song.user) %></h6>
             <div class="card-logo ">
               <% unless current_user.nil? %>
               <div class="dropdown w-100">
