@@ -1,17 +1,18 @@
 .text-center {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-size: 60px;
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
   margin-bottom: 20px;
   text-align: center;
-  border: none;
-  outline: 0;
-  padding: 10px 20px;
   color: $orange;
-  background-color: #000;
+  background-color: none;
   text-align: center;
   cursor: pointer;
-  border-radius: 8px;
+  font-weight: bold;;
+  font-family: sans-serif;
+  font-style: oblique;
+  font-variant: unset;
+  text-shadow: 0 0  5px black,
 }
