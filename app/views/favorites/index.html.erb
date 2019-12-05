@@ -33,7 +33,7 @@
           <audio id="player" controls controlsList="nodownload">
             <source src="<%= song.video %>" type="audio/mp3">
             </audio>
-            <h5 class="card-title-song"><%= song.title  %></h5>
+            <div class="name"><h5 class="card-title-song"><%= song.title  %></h5></div>
             <h6 class="card-artistname"><%= link_to song.user.pseudo, user_path(song.user) %></h6>
             <div class="card-logo d-flex justify-content-center">
               <% unless current_user.nil? %>

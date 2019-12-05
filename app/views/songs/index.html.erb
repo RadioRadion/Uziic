@@ -1,21 +1,13 @@
 <div class="container">
   <% if params[:query].nil? %>
-  <div class="banner">
-    <h1> <strong> Uziic be a part</strong> of <strong>your city's sound</strong></h1>
-
-  </div>
+    <div class="banner">
+      <h1> <strong> Uziic be a part</strong> of <strong>your city's sound</strong></h1>
+    </div>
   <% end %>
 
-
-  <% unless params[:query].nil? %>
-  <div class="sidebar w-25 d-flex flex-column align-items-center justify-content-around text-left mt-5">
-    <%= link_to "Title >",root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left" %>
-    <%= link_to "Playlist >", lists_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess text-left"  %>
-  </div>
-  <% end %>
   <div class="row d-flex">
     <% if @songs.size == 0 %>
-    <p>No music found</p>
+      <p>No music found</p>
     <% else %>
     <% @songs.each do |song| %>
     <div class="w-75 col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center">
@@ -27,7 +19,7 @@
           <audio id="player" controls controlsList="nodownload">
             <source src="<%= song.video %>" type="audio/mp3">
             </audio>
-            <h5 class="card-title-song"><%= song.title  %></h5>
+            <div class="name"><h5 class="card-title-song"><%= song.title  %></h5></div>
             <h6 class="card-artistname"><%= link_to song.user.pseudo, user_path(song.user) %></h6>
             <div class="card-logo d-flex justify-content-center align-items-center">
               <% unless current_user.nil? %>

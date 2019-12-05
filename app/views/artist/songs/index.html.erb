@@ -1,9 +1,18 @@
 <div class="container">
   <p class="h1 text-center">My musics</p>
 
-  <button type="button" class="btn-createlist btn btn-warning text-center" data-toggle="modal" data-target="#exampleModal">
-    Add Song +
-  </button>
+   <figure>
+    <div>
+    <button type="button" class="btn-createlist" data-toggle="modal" data-target="#exampleModal">
+     <span>Add song +</span>
+      <span style="color: black" >Add song +</span>
+      </button>
+    </div>
+  </figure>
+
+
+
+
   <div class="row d-flex">
 
     <!-- Modal -->
@@ -23,8 +32,9 @@
       </div>
     </div>
 
-
+    <% i = 0 %>
     <% @songs.each do |song| %>
+    <% i = i + 1 %>
     <div class="w-75 col-lg-3 col-md-3 col-sm-12">
       <div class="card">
         <% if song.photo.present? %>
@@ -35,14 +45,14 @@
           <audio id="player" controls>
             <source src="<%= song.video %>" type="audio/mp3" controlscontrolsList="nodownload">
             </audio>
-            <h5 class="card-title-song"><%= song.title  %></h5>
-            <h6 class="card-artistname"><%= song.user.pseudo %></h6>
+            <div class="name"><h5 class="card-title-song"><%= song.title  %></h5></div>
+            <h6 class="card-artistname"><%= link_to song.user.pseudo, user_path(song.user) %></h6>
             <div class="card-logo ">
               <% unless current_user.nil? %>
               <div class="dropdown w-100">
                 <div class="align-buton">
                   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true">
-                    <i class="fas fa-plus btn btn-light"></i>
+                    <i class="fas fa-plus btn btn-light" style="color: white"></i>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <% @user_lists.each do |list| %>
@@ -65,11 +75,11 @@
                         <i class="fas fa-retweet" style="color: white"></i>
                         <% end %>
                     <% end %>
-                    <a type="button" class="fas fa-edit mx-1" style="color: white" data-toggle="modal" data-target="#exampleModal2">
+                    <a type="button" class="fas fa-edit mx-1" style="color: white" data-toggle="modal" data-target="#exampleModal<%= i %>">
                     </a>
 
                           <!-- Modal -->
-                      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="exampleModal<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
