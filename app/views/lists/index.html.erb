@@ -2,10 +2,10 @@
 
 
 <div class="container">
-  <div>
-    <%= link_to "Title", root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess" %>
-    <%= link_to "Playlist", lists_path( query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess"  %>
-  </div>
+<!--   <div>
+    <%#= link_to "Title", root_path(query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess" %>
+    <%#= link_to "Playlist", lists_path( query: params[:query], query_town: params[:query_town]), class: "filtre-button btn-sucess"  %>
+  </div> -->
 
     <% @lists.each do |list| %>
     <div class="card-product">
