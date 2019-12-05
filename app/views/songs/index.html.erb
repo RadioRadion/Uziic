@@ -16,7 +16,7 @@
         <%= cl_image_tag(song.photo, width: 400, height: 300, crop: :fill) %>
         <% end %>
         <div class="card-body">
-          <audio id="player" controls controlsList="nodownload">
+          <audio id="player" class="w-100" controls controlsList="nodownload">
             <source src="<%= song.video %>" type="audio/mp3">
             </audio>
             <div class="name"><h5 class="card-title-song"><%= song.title  %></h5></div>

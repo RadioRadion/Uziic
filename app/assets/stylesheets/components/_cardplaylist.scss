@@ -3,6 +3,7 @@
   margin: 20px;
   padding: 15px;
   height: 600px;
+
 }
 
 .playlist-player {
@@ -169,4 +170,12 @@ button#next {
 #playlist li.active {
   font-weight: bold;
   background: #666;
+}
+
+.fa-edit {
+  color: white;
+}
+
+.fa-trash {
+  color: white;
 }
