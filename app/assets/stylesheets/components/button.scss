@@ -176,3 +176,40 @@ figure {
   margin-bottom: 32px;
 }
 
+.btn-follow {
+  margin-left: 47%;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #E67E21;
+  box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+  &:hover {
+    color: $orange;
+    transition: all ease 300ms;
+    text-decoration: none;
+    background-color: white;
+  }
+}
+
+.btn-unfollow {
+  color: black;
+  margin-left: 47%;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #E67E21;
+  box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+  &:hover {
+    color: $orange;
+    transition: all ease 300ms;
+    text-decoration: none;
+    background-color: white;
+  }
+}
+
+
+
+
+
+
+
+
+

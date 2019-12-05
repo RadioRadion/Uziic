@@ -12,9 +12,9 @@
         <% follow = true if favorite.followed == @user %>
       <% end %>
       <% if follow == true %>
-        <%= link_to "UNFOLLOW", user_favorite_path(@favorite.id), method: :delete, class: "btn btn-success"  %>
+        <%= link_to "UNFOLLOW", user_favorite_path(@favorite.id), method: :delete, class: "btn-unfollow"  %>
       <% elsif follow == false %>
-        <%= link_to "FOLLOW", user_favorites_path(@user), method: :post, class: "btn btn-success"  %>
+        <%= link_to "FOLLOW", user_favorites_path(@user), method: :post, class: "btn-follow btn-success"  %>
       <% end %>
     <% end %>
   <% end %>
